@@ -1,8 +1,7 @@
 # coding=utf-8
 import string
 
-def qteste_zero(fita, pos): 
-
+def qteste_zero(fita, pos): #pronto
     if fita[pos] == ">":
         print("\n\nQSIM\n\n") 
 
@@ -13,9 +12,7 @@ def qteste_zero(fita, pos):
     elif fita[pos] == "1":
         print("\n\nQNAO\n\n") 
     
-
-def qli_zero(fita, pos): #testar
-
+def qli_zero(fita, pos): #pronto
     if fita[pos] == "0": 
         pos +=1
         qli_zero(fita, pos)
@@ -26,8 +23,7 @@ def qli_zero(fita, pos): #testar
         pos -=1
         qteste_zero(fita, pos)
 
-def q_(fita, pos): #testar
-    
+def q_(fita, pos): #pronto  
     if fita[pos] == ">":
         pos +=1
         q0(fita, pos)
@@ -37,10 +33,8 @@ def q_(fita, pos): #testar
     elif fita[pos] == "1":
         pos -=1
         q_(fita, pos)
-    
 
-def qteste_um(fita, pos):#testar
-
+def qteste_um(fita, pos): #pronto
     if fita[pos] == ">":
         print("\n\nQSIM\n\n")
 
@@ -51,8 +45,7 @@ def qteste_um(fita, pos):#testar
         pos -=1
         q_(fita, pos)
 
-def qli_um(fita, pos): #testar
-
+def qli_um(fita, pos): #pronto
     if fita[pos] == "0":
         pos +=1
         qli_um(fita, pos)
@@ -63,8 +56,7 @@ def qli_um(fita, pos): #testar
         pos -=1
         qteste_um(fita, pos)
 
-def q0(fita, pos): #testar
-  
+def q0(fita, pos): #pronto
     if fita[pos] == ">":
         pos +=1
         q0(fita, pos)
@@ -78,15 +70,25 @@ def q0(fita, pos): #testar
         qli_um(fita, pos)
     elif fita[pos] == ":":
         print("\n\nQSIM\n\n")
-        
+
+def invalido(x): #verifica se é somente 0 e 1
+    carac = "23456789"
+    i = 0
+    while i < len(x):
+        if (x[i] in carac) == True:
+            return True
+        i += 1 
+    return False
 
 def main():
-    fita = [":" for x in range(50)]
+    fita = [":" for x in range(50)] #preenche a fita com o simbolo de final -> (:) 
     fita[0] = ">" #marca o inicio
     
     x = input("Entre com a cadeia binaria: ")
 
     if (x.isnumeric()) != True: #verifica se nao é vazio e se são numeros
+        main()
+    elif (invalido(x)) == True:
         main()
     else:
         indice = 0
@@ -97,10 +99,9 @@ def main():
             pos += 1
             indice += 1
         
-        print(fita)
+        #print(fita)
         #primeira chamada de função para verificar
         q0(fita, 1) #fita, posição da cabeça e valor de entrada
 
-    
 if __name__ == "__main__":
     main()  
