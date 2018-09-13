@@ -4,7 +4,6 @@ import string
 def qteste_zero(fita, pos): #pronto
     if fita[pos] == ">":
         print("\n\nQSIM\n\n") 
-
     elif fita[pos] == "0":
         fita[pos] = ":" 
         pos -=1
@@ -37,7 +36,6 @@ def q_(fita, pos): #pronto
 def qteste_um(fita, pos): #pronto
     if fita[pos] == ">":
         print("\n\nQSIM\n\n")
-
     elif fita[pos] == "0":
         print("\n\nQNAO\n\n")
     elif fita[pos] == "1":
@@ -101,7 +99,7 @@ def main():
         
         #print(fita)
         #primeira chamada de função para verificar
-        q0(fita, 1) #fita, posição da cabeça e valor de entrada
+        q0(fita, 1) #fita, posição da cabeça 
 
 if __name__ == "__main__":
     main()  
